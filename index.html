@@ -35,10 +35,67 @@
     </div>
 
     <div class="upi-grid">
-      <div class="upi-item">PhonePe</div>
-      <div class="upi-item">Paytm</div>
-      <div class="upi-item">G Pay</div>
-      <div class="upi-item">BHIM</div>
+      <style>
+  /* Add this to your existing <style> section */
+  .upi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .upi-item {
+    border: 1.5px solid #eee;
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    transition: 0.2s;
+  }
+  .upi-item img {
+    height: 32px; /* Adjust size to match your design */
+    width: auto;
+    margin-bottom: 8px;
+    object-fit: contain;
+  }
+  .upi-item span {
+    font-size: 0.85em;
+    font-weight: bold;
+    color: #444;
+  }
+  .upi-item:active {
+    background-color: #f9f9f9;
+    border-color: #2196F3;
+  }
+</style>
+
+<div class="upi-grid">
+  <!-- PhonePe -->
+  <div class="upi-item">
+    <img src="https://uxwing.com" alt="PhonePe">
+    <span>PhonePe</span>
+  </div>
+  
+  <!-- Paytm -->
+  <div class="upi-item">
+    <img src="https://uxwing.com" alt="Paytm">
+    <span>Paytm</span>
+  </div>
+
+  <!-- Google Pay -->
+  <div class="upi-item">
+    <img src="https://uxwing.com" alt="GPay">
+    <span>G Pay</span>
+  </div>
+
+  <!-- BHIM -->
+  <div class="upi-item">
+    <img src="https://uxwing.com" alt="BHIM">
+    <span>BHIM</span>
+  </div>
+</div>
     </div>
 
     <p style="font-size:0.85em; color:#666; margin-top:20px;">↓ Fill the UTR numbers after you done payment</p>
