@@ -15,22 +15,18 @@
         .label { color: #555; font-size: 0.95em; flex: 1; }
         .value-container { display: flex; align-items: center; gap: 10px; flex: 2; justify-content: flex-end; }
         .value { font-weight: bold; color: #333; font-size: 1em; }
-        .copy-btn { color: #2196F3; border: 1px solid #90caf9; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8em; text-transform: uppercase; font-weight: 500; background: white; transition: 0.2s; }
-        .copy-btn:active { background: #e3f2fd; }
-        .help-link { color: #2196F3; text-decoration: none; font-size: 1.05em; display: flex; align-items: center; margin: 15px 0; }
-        .instruction-text { color: #2196F3; font-size: 1.05em; margin: 15px 0 10px 0; display: block; }
+        .copy-btn { color: #2196F3; border: 1px solid #90caf9; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8em; text-transform: uppercase; font-weight: 500; background: white; }
         .upi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
         .upi-item { border: 1px solid #ccc; border-radius: 8px; padding: 12px; display: flex; align-items: center; justify-content: flex-start; background: #fff; text-decoration: none; }
         .upi-item img { height: 24px; width: auto; margin-right: 12px; object-fit: contain; }
         .upi-item span { font-size: 1.1em; font-weight: 500; color: #444; }
-        .utr-row { display: flex; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .utr-row { display: flex; align-items: center; margin: 15px 0; border-bottom: 1px solid #eee; padding-bottom: 5px; }
         .utr-label { width: 50px; font-weight: bold; color: #333; font-size: 0.9em;}
         .input-field { flex: 1; padding: 10px; border: none; outline: none; font-size: 1em; color: #333; }
-        .submit-btn { width: 100%; background: #2196F3; color: white; border: none; padding: 15px; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 1.1em; margin: 10px 0 20px; box-shadow: 0 4px 6px rgba(33, 150, 243, 0.2); }
+        .submit-btn { width: 100%; background: #2196F3; color: white; border: none; padding: 15px; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 1.1em; margin: 20px 0; box-shadow: 0 4px 6px rgba(33, 150, 243, 0.2); }
         .notice-title { color: #d32f2f; font-weight: bold; font-size: 1.1em; margin-bottom: 8px; }
         .notice-item { color: #333; font-size: 0.95em; line-height: 1.5; margin-bottom: 5px; }
         .red-text { color: #d32f2f; font-weight: 600; }
-        .footer { display: flex; justify-content: center; align-items: center; gap: 15px; padding: 20px 0; margin-top: 10px; }
         #status-popup { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.85); color: white; padding: 25px; border-radius: 12px; text-align: center; z-index: 2000; width: 120px; }
         #success-page { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 3000; text-align: center; }
         .success-header { background: #2196F3; color: white; padding: 15px; font-weight: bold; font-size: 1.3em; margin-bottom: 60px; }
@@ -38,8 +34,7 @@
 </head>
 <body onload="initApp()">
 
-<div id="status-popup"><div style="font-size:40px; margin-bottom:10px;">✓</div><div>Submitted</div></div>
-
+<div id="status-popup">✓ Submitted</div>
 <div id="success-page">
     <div class="success-header">Payment</div>
     <div style="color:#4CAF50; font-size:80px; margin: 80px 0 20px;">✔</div>
@@ -56,6 +51,7 @@
             </div>
         </div>
 
+        <!-- Detail Rows -->
         <div class="row">
             <span class="label">Amount</span>
             <div class="value-container">
@@ -71,8 +67,6 @@
             </div>
         </div>
 
-        <a href="#" class="help-link">❔ How to transfer money 🔗</a>
-
         <div class="upi-grid">
             <a href="#" class="upi-item upi-link"><span>PhonePe</span></a>
             <a href="#" class="upi-item upi-link"><span>Paytm</span></a>
@@ -80,72 +74,52 @@
             <a href="#" class="upi-item upi-link"><span>BHIM</span></a>
         </div>
 
-        <span class="instruction-text">↓ Fill the UTR numbers after you done payment</span>
         <div class="utr-row">
             <span class="utr-label">UTR</span>
-            <input type="text" id="utr_input" class="input-field" placeholder="Input 12-digit UTR" maxlength="12" inputmode="numeric">
+            <input type="text" id="utr_input" class="input-field" placeholder="Input UTR number" maxlength="12">
         </div>
-        <button class="submit-btn" onclick="handleSubmit()">Submit UTR</button>
 
+        <!-- NOTICE SECTION -->
         <div class="notice-title">Notice:</div>
         <div class="notice-item">1. <span class="red-text">One UPI</span> can only transfer money <span class="red-text">once.</span></div>
-        <div class="notice-item">2. Don't change the <span class="red-text">payment amount</span> otherwise, the order cannot be closed.</div>
+        <div class="notice-item">2. Don't change the <span class="red-text">payment amount.</span> Otherwise, the order cannot be closed.</div>
+
+        <!-- SUBMIT BUTTON BELOW NOTICE -->
+        <button class="submit-btn" onclick="handleSubmit()">Submit UTR</button>
     </div>
 </div>
 
 <script>
-    // --- EDIT THESE TWO VALUES ONLY ---
+    // EDIT THESE VALUES EASILY
     const PAYMENT_CONFIG = {
         amount: "3500",
         upiId: "asmaakter456003-2@okaxis"
     };
 
     function initApp() {
-        // Update display text
         document.getElementById('display_amount').innerText = "₹ " + PAYMENT_CONFIG.amount;
         document.getElementById('display_upi').innerText = PAYMENT_CONFIG.upiId;
-
-        // Update all UPI deep links
         const upiUrl = `upi://pay?pa=${PAYMENT_CONFIG.upiId}&am=${PAYMENT_CONFIG.amount}&cu=INR`;
-        document.querySelectorAll('.upi-link').forEach(link => {
-            link.href = upiUrl;
-        });
-
+        document.querySelectorAll('.upi-link').forEach(link => link.href = upiUrl);
         startTimer();
     }
 
     function startTimer() {
         let totalSeconds = 600; 
         const timer = setInterval(() => {
-            if (totalSeconds <= 0) {
-                clearInterval(timer);
-                return;
-            }
+            if (totalSeconds <= 0) return clearInterval(timer);
             totalSeconds--;
-            let m = Math.floor(totalSeconds / 60);
-            let s = totalSeconds % 60;
-            document.getElementById('min').innerText = String(m).padStart(2, '0');
-            document.getElementById('sec').innerText = String(s).padStart(2, '0');
+            document.getElementById('min').innerText = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
+            document.getElementById('sec').innerText = String(totalSeconds % 60).padStart(2, '0');
         }, 1000);
     }
 
-    function copyAmount() {
-        navigator.clipboard.writeText(PAYMENT_CONFIG.amount);
-        alert("Amount Copied: " + PAYMENT_CONFIG.amount);
-    }
-
-    function copyUPI() {
-        navigator.clipboard.writeText(PAYMENT_CONFIG.upiId);
-        alert("UPI ID Copied: " + PAYMENT_CONFIG.upiId);
-    }
+    function copyAmount() { navigator.clipboard.writeText(PAYMENT_CONFIG.amount); alert("Copied Amount"); }
+    function copyUPI() { navigator.clipboard.writeText(PAYMENT_CONFIG.upiId); alert("Copied UPI"); }
 
     function handleSubmit() {
         const val = document.getElementById('utr_input').value.trim();
-        if (!/^\d{12}$/.test(val)) { 
-            alert("Error: Please enter the 12-digit UTR number correctly."); 
-            return; 
-        }
-        
+        if (!/^\d{12}$/.test(val)) return alert("Please enter 12-digit UTR");
         document.getElementById('status-popup').style.display = 'block';
         setTimeout(() => {
             document.getElementById('status-popup').style.display = 'none';
