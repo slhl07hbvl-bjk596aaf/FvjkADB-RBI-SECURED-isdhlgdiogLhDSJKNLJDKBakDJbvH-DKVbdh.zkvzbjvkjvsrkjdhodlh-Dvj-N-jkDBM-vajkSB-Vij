@@ -10,77 +10,86 @@
         .header { background: #2196F3; color: white; text-align: center; padding: 15px; font-weight: bold; font-size: 1.3em; }
         .content { padding: 15px; }
 
-        /* Timer Section */
+        /* Timer Section - Updated to 10:00 */
         .timer-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; font-weight: bold; color: #333; }
-        .timer-box { display: flex; gap: 5px; }
-        .digit { background: #2196F3; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.9em; }
+        .timer-box { display: flex; gap: 5px; align-items: center;}
+        .digit { background: #2196F3; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.9em; min-width: 15px; text-align: center; }
 
-        /* Detail Rows */
-        .row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border: 1px solid #90caf9; padding: 12px; border-radius: 6px; }
-        .label { color: #555; font-size: 1em; }
-        .value { font-weight: bold; color: #333; font-size: 1.1em; }
-        .copy-btn { color: #2196F3; border: 1px solid #2196F3; padding: 8px 15px; border-radius: 4px; cursor: pointer; font-size: 0.85em; text-transform: uppercase; font-weight: 500; }
+        /* Detail Rows - Values aligned to right as per picture */
+        .row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border: 1px solid #90caf9; padding: 10px; border-radius: 6px; }
+        .label { color: #555; font-size: 0.95em; flex: 1; }
+        .value-container { display: flex; align-items: center; gap: 10px; flex: 2; justify-content: flex-end; }
+        .value { font-weight: bold; color: #333; font-size: 1em; }
+        .copy-btn { color: #2196F3; border: 1px solid #90caf9; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8em; text-transform: uppercase; font-weight: 500; background: white; }
 
         /* Marked Sections from Image */
-        .help-link { color: #2196F3; text-decoration: none; font-size: 1.05em; display: flex; align-items: center; margin-bottom: 15px; }
-        .instruction-text { color: #2196F3; font-size: 1.05em; margin: 20px 0 10px 0; display: block; }
+        .help-link { color: #2196F3; text-decoration: none; font-size: 1.05em; display: flex; align-items: center; margin: 15px 0; }
+        .instruction-text { color: #2196F3; font-size: 1.05em; margin: 15px 0 10px 0; display: block; }
         
         .upi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
         .upi-item { border: 1px solid #ccc; border-radius: 8px; padding: 15px; display: flex; align-items: center; justify-content: center; background: #fff; text-decoration: none; }
-        .upi-item img { height: 26px; margin-right: 10px; }
+        .upi-item img { height: 24px; margin-right: 10px; }
         .upi-item span { font-size: 1.1em; font-weight: 500; color: #444; }
 
-        /* Input and Button */
-        .utr-row { display: flex; align-items: center; margin-bottom: 15px; }
-        .utr-label { width: 60px; font-weight: bold; color: #333; }
-        .input-field { flex: 1; padding: 12px; border: none; border-bottom: 1px solid #ddd; outline: none; font-size: 1em; color: #999; }
-        .submit-btn { width: 100%; background: #2196F3; color: white; border: none; padding: 15px; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 1.1em; margin-bottom: 15px; }
+        /* UTR Section */
+        .utr-row { display: flex; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .utr-label { width: 50px; font-weight: bold; color: #333; font-size: 0.9em;}
+        .input-field { flex: 1; padding: 10px; border: none; outline: none; font-size: 1em; color: #333; }
+        .input-field::placeholder { color: #ccc; }
+        .submit-btn { width: 100%; background: #2196F3; color: white; border: none; padding: 15px; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 1.1em; margin: 10px 0 20px; box-shadow: 0 4px 6px rgba(33, 150, 243, 0.2); }
 
         /* Notice Section */
-        .notice-title { color: #d32f2f; font-weight: bold; font-size: 1.1em; margin-bottom: 5px; }
-        .notice-item { color: #333; font-size: 0.95em; line-height: 1.4; margin-bottom: 3px; }
+        .notice-title { color: #d32f2f; font-weight: bold; font-size: 1.1em; margin-bottom: 8px; }
+        .notice-item { color: #333; font-size: 0.95em; line-height: 1.5; margin-bottom: 5px; }
         .red-text { color: #d32f2f; font-weight: 500; }
 
         /* Footer Icons */
-        .footer { display: flex; justify-content: center; align-items: center; gap: 15px; padding: 20px 0; border-top: 1px solid #eee; margin-top: 10px; }
-        .footer img { height: 20px; opacity: 0.8; }
+        .footer { display: flex; justify-content: center; align-items: center; gap: 15px; padding: 20px 0; margin-top: 10px; }
+        .footer img { height: 22px; }
 
         /* Popups */
-        #status-popup { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); color: white; padding: 30px; border-radius: 12px; text-align: center; z-index: 2000; width: 130px; }
+        #status-popup { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.85); color: white; padding: 25px; border-radius: 12px; text-align: center; z-index: 2000; width: 120px; }
         #success-page { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 3000; text-align: center; }
     </style>
 </head>
 <body onload="startTimer()">
 
-<div id="status-popup"><div style="font-size:40px">✓</div><div>Submitted</div></div>
+<!-- Success Animation Elements -->
+<div id="status-popup"><div style="font-size:40px; margin-bottom:10px;">✓</div><div>Submitted</div></div>
 <div id="success-page">
-    <div class="header">Payment</div>
-    <div style="color:#4CAF50; font-size:80px; margin: 60px 0 20px;">✔</div>
-    <div style="font-size:1.4em; padding:0 20px;">UTR submitted.<br>Verification in progress.</div>
+    <div class="success-header header">Payment</div>
+    <div style="color:#4CAF50; font-size:80px; margin: 80px 0 20px;">✔</div>
+    <div style="font-size:1.4em; padding:0 20px; color:#333;">UTR submitted.<br>Verification in progress.</div>
 </div>
 
 <div class="payment-card" id="main-card">
     <div class="header">Payment</div>
     <div class="content">
+        <!-- Timer Row set to 10:00 -->
         <div class="timer-row">
             <span>Order will be closed in:</span>
             <div class="timer-box">
-                <span class="digit" id="min">3</span> : <span class="digit" id="sec">0</span>
+                <span class="digit" id="min">10</span> : <span class="digit" id="sec">00</span>
             </div>
         </div>
 
+        <!-- Detail Rows matching the picture layout -->
         <div class="row">
             <span class="label">Amount</span>
-            <span class="value">₹ 3500</span>
-            <div class="copy-btn">COPY</div>
+            <div class="value-container">
+                <span class="value">₹ 3500</span>
+                <div class="copy-btn" onclick="copyToClipboard('3500')">COPY</div>
+            </div>
         </div>
         <div class="row">
             <span class="label">VPA/UPI ID</span>
-            <span class="value">asmaakter456003-2@okaxis</span>
-            <div class="copy-btn">COPY</div>
+            <div class="value-container">
+                <span class="value" id="upi_id">asmaakter456003-2@okaxis</span>
+                <div class="copy-btn" onclick="copyToClipboard('asmaakter456003-2@okaxis')">COPY</div>
+            </div>
         </div>
 
-        <a href="#" class="help-link">❔How to transfer money 🔗</a>
+        <a href="#" class="help-link">❔ How to transfer money 🔗</a>
 
         <div class="upi-grid">
             <a href="upi://pay?pa=asmaakter456003-2@okaxis&am=3500" class="upi-item"><img src="https://img.icons8.com"><span>PhonePe</span></a>
@@ -104,24 +113,35 @@
             <img src="https://img.icons8.com">
             <img src="https://img.icons8.com">
             <img src="https://upload.wikimedia.org">
-            <span style="font-weight:bold; color:#777; font-size:1.2em;">UPI</span>
+            <span style="font-weight:bold; color:#777; font-size:1.2em; margin-left: -5px;">UPI</span>
         </div>
     </div>
 </div>
 
 <script>
+    // 10:00 Minute Timer Logic
     function startTimer() {
-        let m = 2, s = 59;
+        let totalSeconds = 600; // 10 minutes
         setInterval(() => {
-            if(s == 0) { m--; s = 59; } else { s--; }
+            if (totalSeconds <= 0) return;
+            totalSeconds--;
+            let m = Math.floor(totalSeconds / 60);
+            let s = totalSeconds % 60;
             document.getElementById('min').innerText = m;
-            document.getElementById('sec').innerText = s;
+            document.getElementById('sec').innerText = s < 10 ? '0' + s : s;
         }, 1000);
+    }
+
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(() => alert("Copied: " + text));
     }
 
     function handleSubmit() {
         const val = document.getElementById('utr_input').value;
-        if (!/^\d{12}$/.test(val)) { alert("Please enter a valid 12-digit UTR."); return; }
+        if (!/^\d{12}$/.test(val)) { 
+            alert("Error: Please enter the 12-digit UTR number correctly."); 
+            return; 
+        }
         
         document.getElementById('status-popup').style.display = 'block';
         setTimeout(() => {
